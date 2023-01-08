@@ -1,0 +1,20 @@
+<h2>Buscar por Capital:</h2>
+<div class="row">
+  <div class="col">
+    <app-pais-input
+      (onEnter)="buscar( $event )"
+      (onDebounce)="sugerencias( $event )"
+      placeholder="Buscar por capital..."></app-pais-input>
+  </div>
+</div>
+<hr>
+<div class="row mt-4">
+  <div class="alert alert-danger" *ngIf="existe">
+    No se encontró nada con el siguiente término de búsqueda: {{ termino }}
+  </div>
+  <div class="col" *ngIf="countries.length > 0">
+    <app-pais-tabla [countries]="countries"></app-pais-tabla>
+  </div>
+
+</div>
+
